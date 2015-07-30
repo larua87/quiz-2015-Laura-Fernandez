@@ -1,0 +1,15 @@
+
+<form method="get" action="/quizes/<%= quiz.id %>/answer">    	
+  <p>Pregunta: <%= quiz.pregunta%></p>
+  <input name="respuesta" type="text" placeholder="Responda aquí..."f">
+  <input type="submit" value="Enviar" >
+</form>
+
+<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Crear un nuevo comentario</button></a></p>
+<div>
+  <p><strong>Comentarios:</strong></p>
+  <% console.log(quiz.Comments);
+    for(index in quiz.Comments){%>
+    <p>- <%=quiz.Comments[index].texto%></p>
+  <%}%>
+</div>

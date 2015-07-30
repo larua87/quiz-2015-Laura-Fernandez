@@ -1,0 +1,17 @@
+/// <reference path="../typings/tsd.d.ts" />
+
+var users = { admin: {id: 1, username:"admin",password: "admin"},
+			  pepe: {id: 2, username:"laura",password: "2704"}
+	};
+
+exports.autenticar = function(login, password, callback){
+	if(users[login]){
+		if(password===users[login].password){
+			callback(null, users[login]);
+		}else{
+			callback(new Error('Password erroneo.'));
+		}
+	}else{
+		callback(new Error('No existe el usuario'));
+	}	
+};
